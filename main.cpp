@@ -18,9 +18,10 @@ class Person {
         this->birth = birth;
         this->ParentID = ParentID;
         this->job = job;
-        this->joblog = name + ".txt";
+        this->joblog = joblog;
     }
     void ChangeJob(const char *newjob) {
+        cout << "ChangeJob...\n";
         FILE *personjob;
         personjob = fopen(joblog, "a");
         fprintf(personjob, "%s job changed to %s job \n", job, newjob);
@@ -44,9 +45,8 @@ void CoutPerson(Person* newperson) {
 }
 int main() {
     Person* newperson = new Person(172, "Samojlov", "Kirill", 16, "19.07.2006", 0, "-", "SKD.txt");
-    Person* child = newperson.Born(newperson, "Ahot");
-    newperson->ChangeJob("barkery");
-    cout << child->joblog << "//worck?\n";
+    Person* child = newperson->Born(newperson, "Ahot");
+    newperson->ChangeJob("\"yarche!\"");
     CoutPerson(newperson);
     CoutPerson(child);
 }
